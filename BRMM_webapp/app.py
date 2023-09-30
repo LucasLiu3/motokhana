@@ -50,5 +50,6 @@ def showgraph():
     # Names should include their ID and a trailing space, eg '133 Oliver Ngatai '
     bestDriverList = []
     resultsList= []
+    s = 'do some change here'
     return render_template("top5graph.html", name_list = bestDriverList, value_list = resultsList)
 
