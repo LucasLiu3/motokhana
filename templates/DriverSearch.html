@@ -1,0 +1,21 @@
+{% extends "Administrator_Interface.html" %}
+{% block content %}
+
+<div class="d-flex justify-content-center align-items-center" style="margin: 20px;">
+<form name='name' id="name" action="searchdetail"  method ='post'>
+
+
+    <p>
+        Driver's Name: <input type="text" name ='searchname' placeholder="firstname or surname" required>
+
+
+    </p>
+    <p class="d-flex justify-content-center align-items-center">
+        <input type="submit" value="Submit">
+        <span style="margin: 0 10px;">&nbsp;</span>
+        <input type="reset" value="Cancel">
+
+    </p>
+</form>
+</div>
+{% endblock %}

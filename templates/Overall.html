@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   
+    {% extends "Driver_Interface.html" %}
+    {% block content %}
+
+
+    <h2 class="text-center">Overall results</h2>
+
+    <table class="table table-bordered border-primary text-center">
+        <tr>
+            <th>Driver ID</th>
+            <th>Full Name</th>
+            <th>Car</th>
+            <th>Course A</th>
+            <th>Course B</th>
+            <th>Course C</th>
+            <th>Course D</th>
+            <th>Course E</th>
+            <th>Course F</th>
+            <th>Overall Results</th>
+        </tr>
+        {% for overall in overall_list %}
+            <tr>
+                {% for details in overall %}
+                
+                <td>{{details}}</td>
+
+    
+                {% endfor %}
+                
+            </tr>
+        {% endfor %}
+    </table>
+
+    {% endblock %}
+</body>
+</html>
+
+

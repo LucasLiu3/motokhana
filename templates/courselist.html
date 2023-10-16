@@ -1,23 +1,42 @@
-{% extends "base.html" %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+{% extends "Driver_Interface.html" %}
 {% block content %}
 
-<h2>Course List</h2>
-<h3>current competition courses</h3>
 
-<!-- code to display list of courses-->
-<table>
-    <tr>
+<h2 class="text-center">Current Course List</h2>
+
+
+<table class="table table-bordered border-primary">
+ 
+    <tr class="text-center">
         <th>Course</th>
         <th>Name</th>
         <th>Map diagram</th>
     </tr>
+
+    
     {% for course in course_list %}
-        <tr>
+        <tr class="text-center align-middle">
             {% for field in course %}
-                <td>{{field}}</td>
+                {% if field.endswith('.gif') %}
+                    <td><img src="../static/{{field}}" alt="" style="width:300px;height:300px"></td>
+                {% else %}
+                    <td>{{field}}</td>
+                {% endif %}
             {% endfor %}
         </tr>
     {% endfor %}
 </table>
 
 {% endblock %}
+
+</body>
+</html>
