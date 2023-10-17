@@ -6,6 +6,7 @@
 
     {% if driver_name %}
 
+
     <div class="d-flex justify-content-center align-items-center" style="margin: 20px;">
     <form name='driver_name' id="driver_name" action="rundetail"  method ='post'>
 
@@ -30,7 +31,7 @@
 </div>
     {% endif %}
 
-
+    <div style="margin: 30px;">
     <h2 class="text-center">Driver's run details</h2>
     
     <table class="table table-bordered border-primary text-center">
@@ -55,9 +56,6 @@
         {% endfor %}
     </table>
 
-
-
-
         <table class="table table-bordered border-primary text-center">
         <tr>
             <th>Course Name</th>
@@ -78,7 +76,7 @@
         </tr>
         {% endfor %}
     </table>
-
+    </div>
 
     {% endblock %}
 

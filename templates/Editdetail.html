@@ -5,10 +5,10 @@
 
 <div style="position: relative; margin: 20px;">
 
-    <a href="{{ url_for('Edit') }}" class="back-button" style="position: absolute; top: 0; left:300px;">Back</a>
+    <a href="{{ url_for('Edit') }}" class="back-button" style="position: absolute; top: 0; left:300px; text-decoration: none; ">< Back</a>
 
 
-    <div class="d-flex justify-content-center align-items-center" style="margin: 20px;">
+    <div class="d-flex justify-content-center align-items-center" style="margin: 30px;">
         <form name='edit' id="edit" action="Editruns"  method ='post'>
         
         
@@ -18,7 +18,12 @@
                     <option> {{driverid}}</option>
                 </select>
                 </p>
-        
+
+            <label>Driver Name:</label>
+            <select name="fullname" id="fullname">
+                <option> {{name[0][0]}} {{name[0][1]}}</option>
+            </select>
+            </p>
                 <p>
                     <label>Course ID:</label>
                 <select name="courseid" id="courseid">

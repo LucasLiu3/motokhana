@@ -132,8 +132,15 @@ def Editdetail():
     connection = getCursor()
     connection.execute(sql)
     detail = connection.fetchall()
-    
-    return render_template("Editdetail.html",run_detail = detail,driverid=driverid,courseid=courseid,runnum=runnum)
+
+    name = f"""select first_name,surname FROM driver
+             where driver_id ={driverid} 
+          """
+    connection = getCursor()
+    connection.execute(name)
+    name = connection.fetchall()
+
+    return render_template("Editdetail.html",run_detail = detail,driverid=driverid,name=name,courseid=courseid,runnum=runnum)
 
 
 @app.route("/Editruns",methods=['POST'])
@@ -194,7 +201,10 @@ def Adddriver():
     carclass = request.form.get('carclass')
     Age = request.form.get('age')
 
- 
+    rundetail = f"""select distinct crs_id,run_num from run"""
+    connection = getCursor()
+    connection.execute(rundetail)
+    rundetail = connection.fetchall()
 
     if firstname and surname and birthdate:
 
@@ -233,7 +243,7 @@ def Adddriver():
                 connection.execute(new)
                 add = connection.fetchall()
 
-                return render_template("Adddriver.html",add_list =add)
+                return render_template("Adddriver.html",add_list =add,run_detail= rundetail)
 
         elif Age and (12<=int(Age)<=16):
 
@@ -269,7 +279,7 @@ def Adddriver():
                 connection.execute(new)
                 add = connection.fetchall()
 
-                return render_template("Adddriver.html",add_list =add)
+                return render_template("Adddriver.html",add_list =add,run_detail= rundetail)
 
         else:
             birthday = datetime.strptime(birthdate,"%Y-%m-%d")
@@ -310,7 +320,7 @@ def Adddriver():
         connection = getCursor()
         connection.execute(idsql)
         newid = connection.fetchall()
-        print(newid)
+    
         newid = int(newid[-1][-1])  
         
         newrun =   f"""
@@ -330,7 +340,8 @@ def Adddriver():
         connection = getCursor()
         connection.execute(new)
         add = connection.fetchall()
-        return render_template("Adddriver.html",add_list =add)
+        
+        return render_template("Adddriver.html",add_list =add,run_detail= rundetail)
         
 
 

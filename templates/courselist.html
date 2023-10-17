@@ -1,16 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+
     
 {% extends "Driver_Interface.html" %}
 {% block content %}
 
 
+<div style="margin: 30px;">
 <h2 class="text-center">Current Course List</h2>
 
 
@@ -27,7 +21,7 @@
         <tr class="text-center align-middle">
             {% for field in course %}
                 {% if field.endswith('.gif') %}
-                    <td><img src="../static/{{field}}" alt="" style="width:300px;height:300px"></td>
+                    <td><img src="../static/{{field}}" alt="" style="width:200px;height:200px"></td>
                 {% else %}
                     <td>{{field}}</td>
                 {% endif %}
@@ -35,8 +29,6 @@
         </tr>
     {% endfor %}
 </table>
-
+</div>
 {% endblock %}
 
-</body>
-</html>
