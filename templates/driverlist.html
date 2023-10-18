@@ -5,11 +5,10 @@
 <div style="margin: 30px;">
 <h2 class="text-center">Driver List</h2>
 
-<table class="table table-bordered border-primary text-center">
+<table class="table table-bordered border-dark table-striped text-center">
     <tr>
         <th>Driver_id</th>
-        <th>First Name</th>
-        <th>Surname</th>
+        <th>Full Name</th>
         <th>Date of Birth</th>
         <th>Age</th>
         <th>Caregiver ID</th>
@@ -21,9 +20,8 @@
     
 
     <tr>
-        <td {% if driver[4] | float >= 12 and driver[4] | float <= 25 %} style="background-color: yellow" {% endif %}><a href="rundetail?driverid={{driver[0]}}" style="text-decoration: none;">{{ driver[0] }}</a></td>
-        <td {% if driver[4] | float >= 12 and driver[4] | float <= 25 %} style="background-color: yellow" {% endif %}>{{ driver[1] }}</td>
-        <td {% if driver[4] | float >= 12 and driver[4] | float <= 25 %} style="background-color: yellow" {% endif %}>{{ driver[2] }}</td>
+        <td {% if driver[4] | float >= 12 and driver[4] | float <= 25 %} style="background-color: yellow" {% endif %}>{{ driver[0] }}</td>
+        <td {% if driver[4] | float >= 12 and driver[4] | float <= 25 %} style="background-color: yellow" {% endif %}><a href="rundetail?driverid={{driver[0]}}" style="text-decoration: none;">{{ driver[1] }} {{ driver[2] }}</a></td>
         <td {% if driver[4] | float >= 12 and driver[4] | float <= 25 %} style="background-color: yellow" {% endif %}>{{ driver[3] }}</td>
         <td {% if driver[4] | float >= 12 and driver[4] | float <= 25 %} style="background-color: yellow" {% endif %}>{{ driver[4] }}</td>
         <td {% if driver[4] | float >= 12 and driver[4] | float <= 25 %} style="background-color: yellow" {% endif %}>{{ driver[5] }}</td>

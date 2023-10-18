@@ -7,34 +7,37 @@
     {% if driver_name %}
 
 
-    <div class="d-flex justify-content-center align-items-center" style="margin: 20px;">
-    <form name='driver_name' id="driver_name" action="rundetail"  method ='post'>
+    <div class="d-flex justify-content-center align-items-center" style="margin: 30px;">
 
-        
-        <label >Driver Name:</label>
-        <select name="drivername" id="drivername" required>
-            <option value="" disabled selected hidden> Select a Driver Name</option>
-            
-            {% for drivername in driver_name %}
-                <option value="{{drivername[0]}}">{{drivername[1]}}</option>
-            {% endfor %}
-        </select>
-        </p>
+        <div class="shadow-lg p-4 mb-3 bg-body-tertiary rounded">
+            <form name='driver_name' id="driver_name" action="rundetail"  method ='post'>
 
-        <p class="d-flex justify-content-center align-items-center">
-            <input type="submit" value="Submit" >
-            <span style="margin: 0 10px;">&nbsp;</span>
-            <input type="reset" value="Cancel" >
+                
+                <label >Driver Name:</label>
+                <select name="drivername" id="drivername" required>
+                    <option value="" disabled selected hidden> Select a Driver Name</option>
+                    
+                    {% for drivername in driver_name %}
+                        <option value="{{drivername[0]}}">{{drivername[1]}}</option>
+                    {% endfor %}
+                </select>
+                </p>
 
-        </p>
-    </form>
-</div>
+                <p class="d-flex justify-content-center align-items-center">
+                    <input type="submit" value="Submit" >
+                    <span style="margin: 0 10px;">&nbsp;</span>
+                    <input type="reset" value="Cancel" >
+
+                </p>
+            </form>
+        </div>
+    </div>
     {% endif %}
 
-    <div style="margin: 30px;">
+    <div style="margin: 30px 30px;">
     <h2 class="text-center">Driver's run details</h2>
     
-    <table class="table table-bordered border-primary text-center">
+    <table class="table table-bordered border-dark table-striped text-center">
         <tr class="text-center">
             <th>Driver ID</th>
             <th>First Name</th>
@@ -56,7 +59,7 @@
         {% endfor %}
     </table>
 
-        <table class="table table-bordered border-primary text-center">
+        <table class="table table-bordered border-dark table-striped text-center">
         <tr>
             <th>Course Name</th>
             <th>Run Num</th>

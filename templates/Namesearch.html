@@ -5,12 +5,12 @@
     {% block content %}
    
     <h2 class="text-center">Driver's Details</h2>
-    <table class="table table-bordered border-primary text-center">
+    <table class="table table-bordered border-dark table-striped text-center">
         {% if driver_detail|length ==0 %}  
            <tr><h2 class="text-center">No Result Found</h2></tr>
 
         {% else %}
-    <table class="table table-bordered border-primary text-center">
+    <table class="table table-bordered border-dark table-striped text-center">
         <tr class="text-center">
             <th>Driver_Id</th>
             <th>First Name</th>
@@ -32,7 +32,7 @@
         {% endfor %}
     </table>
 
-    <table class="table table-bordered border-primary text-center">
+    <table class="table table-bordered border-dark table-striped text-center">
         <tr>
             <th>Course Name</th>
             <th>Run Num</th>

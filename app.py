@@ -394,7 +394,9 @@ def rundetail():
         sql = f"""select d.driver_id,first_name,surname,
                 c.model, c.drive_class,
                 cs.name as course_name, r.run_num,r.seconds,
-                r.cones,r.wd, round((r.seconds+ifnull(r.cones,0)*5+ifnull(r.wd,0)*10),2) as total_time
+                ifnull(r.cones,' '),
+                case when r.wd =0 then '' else 'wd' end,
+                round((r.seconds+ifnull(r.cones,0)*5+ifnull(r.wd,0)*10),2) as total_time
                 from driver as d 
                 left join car as c on d.car = c.car_num
                 left join run as r on d.driver_id = r.dr_id
@@ -424,7 +426,9 @@ def rundetail():
         sql = f"""select d.driver_id, first_name,surname,
                 c.model, c.drive_class,
                 cs.name as course_name, r.run_num,r.seconds,
-                r.cones,r.wd, round((r.seconds+ifnull(cones,0)*5+ifnull(r.wd,0)*10),2) as total_time
+                ifnull(r.cones,' '),
+                case when r.wd =0 then '' else 'wd' end,
+                round((r.seconds+ifnull(cones,0)*5+ifnull(r.wd,0)*10),2) as total_time
                 from driver as d 
                 left join car as c on d.car = c.car_num
                 left join run as r on d.driver_id = r.dr_id
@@ -503,14 +507,14 @@ def overall():
     
     overall = sorted(overall, key=lambda x: float('inf') if isinstance(x[-1], str) else x[-1])
     
-    print(overall)
+ 
     for index, value in enumerate(overall):
         if index == 0:
-             value[9] =str(value[9]) +' (Cup)'
+             value.append('Cup')
         elif 1<=index<=4:   
-             value[9] =str(value[9]) +' (Prize)'
+             value.append("Prize")
         else:
-            value[9] =str(value[9])    
+            value.append(" ")   
 
     return render_template("Overall.html",overall_list = overall)
 

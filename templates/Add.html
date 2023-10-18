@@ -6,6 +6,8 @@
 
     <div class="d-flex justify-content-center align-items-center" style="margin: 30px;">
 
+    <div class="shadow-lg p-5 mb-5 bg-body-tertiary rounded"> 
+
     <form name='driver_name' id="driver_name" action="Adddriver"  method ='post'>
     
 
@@ -20,8 +22,6 @@
           </button>
     </p>
 
-
-
     <div class="collapse" id="collapseExample">
         <label for="birthdate">Date of Birth:</label>
         <input type="date" id="birthdate" name="birthdate"  min ='{{mindate}}' max="{{maxdate}}">
@@ -32,7 +32,6 @@
         <label >Car Model:</label>
         <select name="carclass" id="carclass">
             <option value="" disabled selected hidden> Select A Car</option>
-            
             {% for car in car_list %}
                 <option value="{{car[0]}}">{{car[0]}} {{car[1]}} {{car[2]}}</option>
             {% endfor %}
@@ -46,5 +45,6 @@
     
         </p>
     </form>
+    </div>
     </div>
     {% endblock %}
