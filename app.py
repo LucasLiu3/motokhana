@@ -28,6 +28,9 @@ def getCursor():
 def home():
     return render_template("base.html")
 
+
+
+
 @app.route("/Administrator")
 def Administrator():
     return render_template("Administrator_Interface.html")
@@ -63,7 +66,9 @@ def searchdetail():
         sql = f"""select d.driver_id,surname,first_name ,
                 c.model, c.drive_class,
                 cs.name as course_name, r.run_num,r.seconds,
-                r.cones,r.wd, round((r.seconds+ifnull(r.cones,0)*5+ifnull(r.wd,0)*10),2) as total_time
+                ifnull(r.cones,' '),
+                case when r.wd =0 then '' else 'wd' end,
+                round((r.seconds+ifnull(r.cones,0)*5+ifnull(r.wd,0)*10),2) as total_time
                 from driver as d 
                 left join car as c on d.car = c.car_num
                 left join run as r on d.driver_id = r.dr_id
@@ -343,13 +348,6 @@ def Adddriver():
         
         return render_template("Adddriver.html",add_list =add,run_detail= rundetail)
         
-
-
-
-
-
-
-
 
 
 @app.route("/Driver")
