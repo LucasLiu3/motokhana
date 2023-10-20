@@ -38,8 +38,10 @@ Assumptions
 Decisions
 
 First decision is that I created a route named 'rundetail' which has both 'Get' and 'Post' methods,  getting data from page templates 'driverlist.html' and 'Search.html' and posting date to 'Rundetail.html'. In route 'rundetail', there is a if function, the layout will be different in the 'Rundetail.html' when this route gets data from different page templates. The result is to reduce code duplication and  make the code more readable.
+
 Second, for Edit run fuction in Administrator feature, I created three routes and three page templates to achieve this function.  Routes and templates are related to each ohter.  For example, admin would get dropdown selections in 'Edit.html' which receives data from 
 route '/Edit' and passes the selected data to next page template. The result for this fuction is because it is a complicated feature, it is difficult to do it by using one route and one template page. 
+
 Last is the Add driver feature which is the design option that I weighted up most. To achieve this function, I wrote a long python code including few if fuctions and three template pages. Because there are three situations in this function: drivers who are older than 25, junior drivers who are older than 16 and younger than 25, and junior drivers between 12 and 16 who require a caregiver. Those complicated situations mean that this feature is the most difficult part among these functions, and it is also the result why I spent most of time and I designed the function in this way.
 
 
