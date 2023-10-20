@@ -21,3 +21,41 @@ The next phragrap will take about date is being passed between each route and te
    generate all data about this name to Namesearch.html.
 9. /Edit will send selected dropdown data to Edit.html where will request seconds,cones and wd data to Editdetail.html. it will send those customer edited data to /Editruns where will update these data in database and send them to Editruns.html
 10. /Add will request car and birthday data to Add.html. In this page, without birthday data input, it only sends basic input data(name,car model) to Adddriver.html.  with birthday input, it will send birthday data to AddAge.html whenre will send other data like calculated age, caregiver(if age younger than 16) to Adddriver.html. In /Adddriver route, it will generate 12 blank run data for new driver no matter with birthday or without it.
+
+
+
+Assumptions and design decisions:
+
+
+
+
+
+Database questions:
+
+1. CREATE TABLE car (
+    car_num INT PRIMARY KEY,
+    model VARCHAR(255),
+    drive_class VARCHAR(255));
+
+2. ALTER TABLE driver
+   ADD FOREIGN KEY (car) REFERENCES car(car_num);
+
+3. Insert into car (car_num,model,drive_class)
+   values (11,'Mini','FWD'),(17,'GR Yaris','4WD');
+
+4. ALTER TABLE car
+   ALTER COLUMN drive_class SET DEFAULT 'RWD';
+
+5. Providing different routes and access for drivers and club administrators is important to ensure security and data privacy.
+   If all of th web facilities were available to everyone, some drivers or users may unintentioanlly edit or  delete other driver's runs result, leading to unfair competition outcomes.
+   Another example is that people who are not familiar with this system may flood the system with excessive data or requests, potentially causing performance issues and system crashes.
+
+
+
+Image sources:
+
+Cuputo. (2021, Jun 28). drivericon.png.  https://thenounproject.com/icon/racer-4303634/
+
+Sophia. (2018, Jan 17). administratoricon.png. https://thenounproject.com/icon/administrator-1551890/
+
+
