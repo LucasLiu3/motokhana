@@ -7,7 +7,7 @@ The image below shows the structure of my solution.
 
 ![Alt text](image.png)
 
-The next phragrap will take about date is being passed between each route and temples briefly:
+The next phragrap will take about date is being passed between each route and temple briefly:
 
 1. /listcourse will send all data of the driver table from the database to courselist.html.
 2. /Search  will send some data like driver_id, first name and surname from driver table to Search.html where will send selected dropdown data to /rundetail,
