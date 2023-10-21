@@ -416,8 +416,6 @@ def rundetail():
         connection = getCursor()
         connection.execute(driverdetail)
         driverdetail = connection.fetchall()
-
-
         return render_template("Rundetail.html",run_detail =rundetail,driver_name = drivername,driver_dertail = driverdetail)
     
     elif listdrivers:
