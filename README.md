@@ -1,7 +1,7 @@
 # HaoLiu1157244
 
 
-Web application structure:
+## Web application structure:
 
 The image below shows the structure of my solution.
 
@@ -15,7 +15,7 @@ The next phragrap will take about date is being passed between each route and te
 4. /listdrivers sends all data about drivers from driver table including car model and drive class to driverlist.html where clicking the name will
    send data to /rundetail and show all run details in Rundetail.html.
 5. /overall will send all data about run detail including calculated overall result to Overall.html.
-6. /graph will two variables drivername and their overall reuslts to top5graph.thml
+6. /graph will pass two variables drivername and their overall reuslts to top5graph.thml
 7. /Junior sends all data about junior drivers to Junior.html
 8. /DriverSearch will not send data to DriverSearch.html, but it will post customer data to /searchdetail where will
    generate all data about this name to Namesearch.html.
@@ -24,7 +24,7 @@ The next phragrap will take about date is being passed between each route and te
 
 
 
-Assumptions and design decisions:
+## Assumptions and design decisions:
 
 Assumptions
 
@@ -44,15 +44,9 @@ route '/Edit' and passes the selected data to next page template. The result for
 
 Last is the Add driver feature which is the design option that I weighted up most. To achieve this function, I wrote a long python code including few if fuctions and three template pages. Because there are three situations in this function: drivers who are older than 25, junior drivers who are older than 16 and younger than 25, and junior drivers between 12 and 16 who require a caregiver. Those complicated situations mean that this feature is the most difficult part among these functions, and it is also the result why I spent most of time and I designed the function in this way.
 
+              
 
-
-
-
-
-
-                         
-
-Database questions:
+## Database questions:
 
 1. CREATE TABLE car (
     car_num INT PRIMARY KEY,
@@ -74,7 +68,7 @@ Database questions:
 
 
 
-Image sources:
+## Image sources:
 
 Cuputo. (2021, Jun 28). drivericon.png.  https://thenounproject.com/icon/racer-4303634/
 
