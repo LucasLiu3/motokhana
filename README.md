@@ -50,8 +50,8 @@ Last is the Add driver feature which is the design option that I weighted up mos
 
 1. CREATE TABLE car (
     car_num INT PRIMARY KEY,
-    model VARCHAR(255),
-    drive_class VARCHAR(255));
+    model VARCHAR(20),
+    drive_class VARCHAR(3));
 
 2. ALTER TABLE driver
    ADD FOREIGN KEY (car) REFERENCES car(car_num);
