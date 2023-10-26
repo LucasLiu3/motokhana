@@ -65,8 +65,11 @@ def searchdetail():
 
         sql = f"""select d.driver_id,surname,first_name ,
                 c.model, c.drive_class,
-                cs.name as course_name, r.run_num,r.seconds,
-                ifnull(r.cones,' '),
+                cs.name as course_name, r.run_num,
+                r.seconds,
+                case when r.cones = 0 then ' '
+                when r.cones is Null then ' '
+                else r.cones end,
                 case when r.wd =0 then '' else 'wd' end,
                 round((r.seconds+ifnull(r.cones,0)*5+ifnull(r.wd,0)*10),2) as total_time
                 from driver as d 
@@ -131,7 +134,7 @@ def Editdetail():
     courseid = request.form.get('courseid')
     runnum = request.form.get('runnum')
     
-    sql = f"""select seconds,ifnull(cones,0),wd from run
+    sql = f"""select ifnull(seconds,0),ifnull(cones,0),wd from run
              where dr_id ={driverid} and crs_id = "{courseid}" and run_num = {runnum}
           """
     connection = getCursor()
@@ -392,7 +395,9 @@ def rundetail():
         sql = f"""select d.driver_id,first_name,surname,
                 c.model, c.drive_class,
                 cs.name as course_name, r.run_num,r.seconds,
-                ifnull(r.cones,' '),
+                case when r.cones = 0 then ' '
+                when r.cones is Null then ' '
+                else r.cones end,
                 case when r.wd =0 then '' else 'wd' end,
                 round((r.seconds+ifnull(r.cones,0)*5+ifnull(r.wd,0)*10),2) as total_time
                 from driver as d 
@@ -422,7 +427,9 @@ def rundetail():
         sql = f"""select d.driver_id, first_name,surname,
                 c.model, c.drive_class,
                 cs.name as course_name, r.run_num,r.seconds,
-                ifnull(r.cones,' '),
+                case when r.cones = 0 then ' '
+                when r.cones is Null then ' '
+                else r.cones end,
                 case when r.wd =0 then '' else 'wd' end,
                 round((r.seconds+ifnull(cones,0)*5+ifnull(r.wd,0)*10),2) as total_time
                 from driver as d 
